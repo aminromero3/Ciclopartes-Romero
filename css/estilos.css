@@ -162,7 +162,7 @@ li a:hover{
 }
 
 /*NOSOTROS*/
-#grid-productos{
+#grid-nosotros{
     display: grid;
     grid-template-areas:
     "header header header"
@@ -173,6 +173,9 @@ li a:hover{
     grid-template-rows: 100px auto 75px; 
 }
 
+.fondo{
+    background-image: linear-gradient(white 95%,rgb(226, 52, 110));
+}
 #sobre-nosotros{
     grid-area: nosotros;
 }
@@ -203,18 +206,29 @@ li a:hover{
 #contacto{
     grid-area: contacto;
 }
+
+.titulo1{
+    padding: 10px;
+}
+
+.parrafo{
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+}
+
 .contacto-flex{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     text-align: center;
-    background-color: darkgrey;
+    background-image: linear-gradient(110deg, white, darkgrey);
     height: 700px;
     padding-top: 8%;
 }
 #ubicacion{
     grid-area: ubicacion;
-    background-color: azure;
+    background-color: darkgrey;
 }
 .ubicacion-flex{
     display: flex;
@@ -250,6 +264,11 @@ li a:hover{
     padding: 4%;
 }
 
+.lista-preguntas{
+    background-color: white;
+    border-radius: 2px;
+    padding: 6px;
+}
 /*FOOTER*/
 
 .redes{
@@ -300,5 +319,17 @@ footer{
         padding: 0.5%;
         margin: 10px;
         text-align: center;
+    }
+    /*****CONTACTO*****/
+    #grid-contacto{
+        display: grid;
+        grid-template-areas:
+        "header header"
+        "contacto contacto"
+        "ubicacion ubicacion"
+        "footer footer"
+        ;
+        grid-template-columns: 100% 100%;
+        grid-template-rows: 100px auto auto 75px;
     }
 }
