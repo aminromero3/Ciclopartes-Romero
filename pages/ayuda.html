@@ -5,50 +5,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayuda</title>
-    <link rel="shortcut icon" href="../assets/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo1.png" type="image/x-icon">
+    <!-- ESTILOS BOOTSTRAP LOCAL -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- ESTILOS propio -->
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
-<body id="grid-ayuda">
+<body>
+    <!--INICIO HEADER-->
     <header>
-        <a href="../index.html" target=""><img src="../assets/logo2.png" alt="logo" class="logo"></a>
-        <nav>
-             <ul class="menu-flex">
-                  <li><a href="../index.html">Home</a></li>
-                  <li><a href="../pages/productos.html">Productos</a></li>
-                  <li><a href="../pages/nosotros.html">Nosotros</a></li>
-                  <li><a href="../pages/contacto.html">Contacto</a></li>
-                  <li><a href="../pages/ayuda.html">Ayuda</a></li>
-             </ul>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+            <div class="container-fluid">
+                <a href="../index.html" target=""><img src="../assets/logo2.png" alt="logo" class="logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarsExample04">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0 justify-content-center">
+                        <li><a href="../index.html" class="nav-link px-2 link-dark">Home</a></li>
+                        <li><a href="productos.html" class="nav-link px-2 link-dark">Productos</a></li>
+                        <li><a href="nosotros.html" class="nav-link px-2 link-dark">Nosotros</a></li>
+                        <li><a href="contacto.html" class="nav-link px-2 link-dark">Contacto</a></li>
+                        <li><a href="ayuda.html" class="nav-link px-2 link-dark">Ayuda</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
+    <!--FIN HEADER-->
     <main>
-       <section id="ayuda" class="ayuda-flex">
-           <h2>Ayuda</h2>
-           <h3>Preguntas Frecuentes</h3>
-           <ol>
-               <li class="lista-preguntas">Pregunta</li>
-               <p class="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem vitae aliquid non asperiores sint aut quasi hic quisquam aspernatur eos quibusdam illum, accusantium quis dolores, maxime quod, reprehenderit blanditiis esse!</p>
-               <li class="lista-preguntas">Pregunta</li>
-               <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum magnam quos commodi voluptatem quo libero eaque, accusamus aspernatur quas deserunt. Dolorem quisquam labore fugit, non architecto praesentium similique sed rerum?</p>
-               <li class="lista-preguntas">Pregunta</li>               
-               <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum magnam quos commodi voluptatem quo libero eaque, accusamus aspernatur quas deserunt. Dolorem quisquam labore fugit, non architecto praesentium similique sed rerum?</p>
-               <li class="lista-preguntas">Pregunta</li>
-               <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum magnam quos commodi voluptatem quo libero eaque, accusamus aspernatur quas deserunt. Dolorem quisquam labore fugit, non architecto praesentium similique sed rerum?</p>
-               <li class="lista-preguntas">Pregunta</li>
-               <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum magnam quos commodi voluptatem quo libero eaque, accusamus aspernatur quas deserunt. Dolorem quisquam labore fugit, non architecto praesentium similique sed rerum?</p>
-               <li class="lista-preguntas">Pregunta</li>
-               <p class="parrafo"> ipsum dolor sit amet consectetur adipisicing elit. Omnis eum rerum praesentium esse iure molestiae perferendis, dolore dolor enim cumque magnam suscipit voluptas quaerat adipisci eius non voluptatibus, necessitatibus alias!</p>
-               <li class="lista-preguntas">Pregunta</li>
-               <p class="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus delectus maiores eaque et pariatur at nulla saepe placeat. Incidunt sed dolor impedit nesciunt repellat, eaque atque ea ipsam exercitationem maxime?</p>
-           </ol>
-           </ol>
-       </section>
+        <section>
+            <div class="accordion accordion-flush m-5 p-4" id="accordionFlushExample">
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Pregunta 1
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos adipisci maiores amet cumque quis, excepturi at mollitia illo! Dolorem pariatur asperiores culpa sequi, facilis expedita dolores distinctio aliquam magnam accusantium!</div>
+                  </div>
+                </div>
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header m-1" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Pregunta 2
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quam esse deleniti maiores doloribus alias voluptatem tempora fugit vitae repellendus quos atque, iure veniam eaque odio voluptatibus accusamus, dolore dolores.</div>
+                  </div>
+                </div>
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header " id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Pregunta 3
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sunt provident praesentium velit repellat ea sit? Placeat eos nostrum, maxime harum minus voluptatum pariatur fugiat enim voluptatibus architecto amet reprehenderit?</div>
+                  </div>
+                </div>
+                <div class="accordion-item m-2">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        Pregunta 4
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos adipisci maiores amet cumque quis, excepturi at mollitia illo! Dolorem pariatur asperiores culpa sequi, facilis expedita dolores distinctio aliquam magnam accusantium!</div>
+                    </div>
+                </div>
+                <div class="accordion-item m-2">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                        Pregunta 5
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos adipisci maiores amet cumque quis, excepturi at mollitia illo! Dolorem pariatur asperiores culpa sequi, facilis expedita dolores distinctio aliquam magnam accusantium!</div>
+                    </div>
+                </div>
+                <div class="accordion-item m-2">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                        Pregunta 6
+                      </button>
+                    </h2>
+                    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos adipisci maiores amet cumque quis, excepturi at mollitia illo! Dolorem pariatur asperiores culpa sequi, facilis expedita dolores distinctio aliquam magnam accusantium!</div>
+                    </div>
+                </div>
+                <div class="accordion-item m-2">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                        Pregunta 7
+                      </button>
+                    </h2>
+                    <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos adipisci maiores amet cumque quis, excepturi at mollitia illo! Dolorem pariatur asperiores culpa sequi, facilis expedita dolores distinctio aliquam magnam accusantium!</div>
+                    </div>
+                </div>
+                <div class="accordion-item m-2">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
+                        Pregunta 8
+                      </button>
+                    </h2>
+                    <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos adipisci maiores amet cumque quis, excepturi at mollitia illo! Dolorem pariatur asperiores culpa sequi, facilis expedita dolores distinctio aliquam magnam accusantium!</div>
+                    </div>
+                </div>
+                <div class="accordion-item m-2">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+                        Pregunta 9
+                      </button>
+                    </h2>
+                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos adipisci maiores amet cumque quis, excepturi at mollitia illo! Dolorem pariatur asperiores culpa sequi, facilis expedita dolores distinctio aliquam magnam accusantium!</div>
+                    </div>
+                </div>
+                
+              </div>
+        </section>
     </main>
-    <footer>
-        <a href="https://www.facebook.com/" target="_blank"><img src="../assets/facebook.png" alt="facebook" class="redes"></a>
-        <a href="https://www.instagram.com/" target="_blank"><img src="../assets/instagram.png" alt="instagram" class="redes"></a>
-        <p>Todos los derechos reservados &copy;2022 - Desarrollado por: Amin Romero</p>
-
+    <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+          </a>
+          <span class="text-muted">Todos los derechos reservados &copy;2022 - Desarrollado por: Amin Romero</span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><img class="bi" width="35" height="35" src="../assets/facebook.png"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><img class="bi" width="35" height="35" src="../assets/instagram.png"></img></a></li>
+        </ul>
     </footer>
+    <!-- JAVASCRIPT BS-->
+    <script src="../js/bootstrap.js"></script>
 </body>
 </html>
