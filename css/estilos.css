@@ -2,3 +2,8 @@
     height: 45px;
     margin-right: 25px;
 }
+
+.escalado:hover{
+    transform: scale3d(1.07,1.07,1.07);
+    transform-origin: center center;
+}
