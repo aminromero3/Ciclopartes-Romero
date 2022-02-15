@@ -1,0 +1,19 @@
+footer {
+    div {
+        span{
+            margin-top: 6%;
+        }
+    }
+    ul {
+        li {
+            a {
+                img{
+                    &:hover{
+                        transform: scale3d(1.07,1.07,1.07);
+                        transform-origin: center center;
+                    }
+                }
+            }
+        }
+    }
+}

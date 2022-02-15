@@ -1,9 +1,18 @@
-.logo{
-    height: 45px;
-    margin-right: 25px;
-}
+header nav div a img {
+  height: 45px;
+  margin-right: 25px; }
 
-.escalado:hover{
-    transform: scale3d(1.07,1.07,1.07);
-    transform-origin: center center;
-}
+header nav div div ul a:hover {
+  transform: scale3d(1.07, 1.07, 1.07);
+  transform-origin: center center; }
+
+footer div span {
+  margin-top: 6%; }
+
+footer ul li a img:hover {
+  transform: scale3d(1.07, 1.07, 1.07);
+  transform-origin: center center; }
+
+section div div div div:hover {
+  transform: scale3d(1.04, 1.04, 1.04);
+  transform-origin: center center; }
