@@ -1,6 +1,8 @@
+/*IMPORTS*/
 @import "header";
+@import "home";
 @import "footer";
-@import "maps";
+
 
 
 section {
@@ -8,6 +10,11 @@ section {
         div {
             div {
                 div{
+                    div {
+                        p{
+                            font-size:90%;
+                        }
+                    }
                     &:hover{
                         transform: scale3d(1.04,1.04,1.04);
                         transform-origin: center center;

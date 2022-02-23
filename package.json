@@ -1,7 +1,7 @@
 {
-  "name": "root",
+  "name": "ciclopartes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ciclopartes - web de Ecommerce para articulos de ciclismo",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/aminromero3/Ciclopartes-Romero.git"
   },
-  "author": "",
+  "author": "Amin Romero",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aminromero3/Ciclopartes-Romero/issues"
