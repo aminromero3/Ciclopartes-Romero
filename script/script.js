@@ -1,41 +1,43 @@
-// **** ARRAYS **** //
+
+// Inicializamos el carrito
+let carrito = [];
 // Productos destacados
 const productosDestacados=[
     {
         id: 0,
         descripcion: "Bicicleta de ruta para hombres, azul oscuro y naranja",
         precio: 1200,
-        img: "../assets/bici1.jpg",
+        img: "./assets/bici1.jpg",
     },
     {
         id: 1,
         descripcion: "Bicicleta de paseo basica para damas, roja ",
         precio: 1250,
-        img: "../assets/bici2.jpg",
+        img: "./assets/bici2.jpg",
     },
     {
         id: 2,
         descripcion: "Bicicleta de montaña para hombres, negra y azul",
         precio: 1300,
-        img: "../assets/bici3.jpg",
+        img: "./assets/bici3.jpg",
     },
     {
         id: 3,
         descripcion: "Bicicleta de montaña para damas, violeta",
         precio: 1200,
-        img: "../assets/bici4.jpg",
+        img: "./assets/bici4.jpg",
     },
     {
         id: 4,
         descripcion: "Bicicleta fixie, ideal para la ciudad, negra",
         precio: 1200,
-        img: "../assets/bici5.jpg",
+        img: "./assets/bici5.jpg",
     },
     {
         id: 5,
         descripcion: "Bicicleta de paseo para damas, blanca y verde",
         precio: 1200,
-        img: "../assets/bici6.jpg",
+        img: "./assets/bici6.jpg",
     },
 ];
 
@@ -119,7 +121,7 @@ const productosDestacados=[
 //  recibimos el array como parametro
 function mostrarProductos(array){
     // obtenemos el div 
-    let contenedor=document.querySelector("contenedor");
+    let contenedor=document.getElementById("contenedor");
 
     // recorremos el array e imprimimos
     for(const producto of array){
@@ -133,9 +135,10 @@ function mostrarProductos(array){
             <div class="col">
             <div class="card shadow-sm">
                 <img class="bd-placeholder-img img-fluid card-img-top" width="100%"  src="${producto.img}" alt="bicicleta 1">
-                <div class="card-body">
-                    <p class="card-text">${producto.descripcion}</p>
-            
+                <p class="card-subtitle ">${producto.descripcion}</p>
+                <p class="card-text ">$${producto.precio}</p>
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button id="agregar${producto.id}" type="button" class="btn m-4 btn-dark"> Agregar </button>
                 </div>
             </div>
             </div>
@@ -143,7 +146,17 @@ function mostrarProductos(array){
             // Una vez que tenemos creada la card, la agregamos al contenedor
             // que obtuvimos desde el HTML
             contenedor.appendChild(card);
-        
+            // Es hora de asignar el evento al botón
+            // Observen que al id del botón lo nombramos de manera dinámica, asignándole al nombre
+            // la palabra "agregar" seguida del id del alfajor. Esto nos crea un nombre único
+            // por cada botón, haciendo referencia a la card seleccionada
+            let boton = document.getElementById(`agregar${producto.id}`);
+
+            // Al botón le pasamos dos parámetros:
+            // el evento click seguido de la función que queremos que se ejecute
+            // al disparar el evento
+            boton.onclick = () => agregarAlCarrito(producto.id);
+            // boton.addEventListener("click", () => agregarAlCarrito(alfajor.id));
     }
 };
 
