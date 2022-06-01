@@ -23,3 +23,10 @@ section div div div div div p {
 section div div div div:hover {
   transform: scale3d(1.02, 1.02, 1.02);
   transform-origin: center center; }
+
+
+.carrito {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
