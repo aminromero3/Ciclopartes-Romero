@@ -1,8 +1,30 @@
+// Clase constructora
+class Producto {
+    constructor(producto) {
+        this.id = producto.id;
+        this.descripcion = producto.descripcion;
+        this.precio = producto.precio;
+        this.cantidad = 1;
+        this.precioTotal = producto.precio;
+    }
+
+    agregarUnidad() {
+        this.cantidad++;
+    }
+
+    quitarUnidad() {
+        this.cantidad--;
+    }
+
+    actualizarPrecioTotal() {
+        this.precioTotal = this.precio * this.cantidad;
+    }
+};
 
 // Inicializamos el carrito
 let carrito = [];
-// Productos destacados
-const productosDestacados=[
+// Productos
+const productos=[
     {
         id: 0,
         descripcion: "Bicicleta de ruta para hombres, azul oscuro y naranja",
@@ -120,46 +142,136 @@ const productosDestacados=[
 //  ************* DECLARACION DE FUNCIONES *********//
 //  recibimos el array como parametro
 function mostrarProductos(array){
-    // obtenemos el div 
     let contenedor=document.getElementById("contenedor");
-
-    // recorremos el array e imprimimos
+    
     for(const producto of array){
-        // Creamos el contendor individual para cada card
         let card=document.createElement("div");
         
-        // Agregamos el contenido a la card
-        // Esto es con clases de bootstrap
-        // Si necesitan una versión más sencilla haganmelo saber :)
         card.innerHTML=`
             <div class="col">
             <div class="card shadow-sm">
                 <img class="bd-placeholder-img img-fluid card-img-top" width="100%"  src="${producto.img}" alt="bicicleta 1">
-                <p class="card-subtitle ">${producto.descripcion}</p>
-                <p class="card-text ">$${producto.precio}</p>
+                <div class="m-3">
+                    <p class="card-subtitle">${producto.precio}</p>
+                    <p class="card-text ">${producto.descripcion}</p>
+                </div>
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                     <button id="agregar${producto.id}" type="button" class="btn m-4 btn-dark"> Agregar </button>
                 </div>
             </div>
             </div>
             `;
-            // Una vez que tenemos creada la card, la agregamos al contenedor
-            // que obtuvimos desde el HTML
+            
             contenedor.appendChild(card);
-            // Es hora de asignar el evento al botón
-            // Observen que al id del botón lo nombramos de manera dinámica, asignándole al nombre
-            // la palabra "agregar" seguida del id del alfajor. Esto nos crea un nombre único
-            // por cada botón, haciendo referencia a la card seleccionada
+            
             let boton = document.getElementById(`agregar${producto.id}`);
-
-            // Al botón le pasamos dos parámetros:
-            // el evento click seguido de la función que queremos que se ejecute
-            // al disparar el evento
-            boton.onclick = () => agregarAlCarrito(producto.id);
-            // boton.addEventListener("click", () => agregarAlCarrito(alfajor.id));
+            
+            boton.onclick = () => agregarACarrito(producto.id);
     }
 };
 
+function eliminarDeCarrito(id) {
+    let producto = carrito.find((producto) => producto.id === id);
+    let index = carrito.findIndex((element) => {
+        if (element.id === producto.id) {
+            return true;
+        }
+    });
+    if (producto.cantidad > 1) {
+        console.log(`cantidad disponible: ${producto.cantidad}`);
 
+        carrito[index].quitarUnidad();
+        carrito[index].actualizarPrecioTotal();
+    } else {
+        carrito.splice(index, 1);
 
-mostrarProductos(productosDestacados);
+        if (carrito.lenght === 0) {
+            carrito = [];
+        }
+    }
+    tablaCarrito(carrito);
+}
+
+function tablaCarrito(carrito) {
+    let contenedor1= document.getElementById("carrito");
+    contenedor1.innerHTML = "";
+
+    let precioTotal;
+    precioTotal = obtenerPrecioTotal(carrito);
+
+    let tabla = document.createElement("div");
+    tabla.innerHTML = `
+        <table id="tablaCarrito" class="table table-striped m-5">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio Parcial</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody id="bodyTabla">
+                <tr>
+                    <th scope="row">Total: $${precioTotal}</th>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+            </tbody>
+        </table>
+    `;
+
+    contenedor1.appendChild(tabla);
+    let bodyTabla = document.getElementById("bodyTabla");
+    for (let producto of carrito) {
+        let datos = document.createElement("tr");
+        datos.innerHTML =`
+            <th scope="row">1</th>
+            <td>${producto.descripcion}</td>
+            <td>${producto.cantidad}</td>
+            <td>$${producto.precioTotal}</td>
+            <td><button id="eliminar${producto.id}" type="button" class="btn btn-light">Eliminar</button></td>
+        `;
+
+        bodyTabla.appendChild(datos);
+
+        let eliminar=document.getElementById(`eliminar${producto.id}`)
+
+        eliminar.onclick = () =>eliminarDeCarrito(producto.id);
+    }
+};
+
+function agregarACarrito(idProducto) {
+    let productoCarrito = carrito.find((elemento) => {
+        if (elemento.id == idProducto) {
+            return true;
+        }
+    });
+
+    if (productoCarrito) {
+        let index = carrito.findIndex((elemento) => {
+            if (elemento.id === productoCarrito.id) {
+                return true;
+            }
+        });
+
+        carrito[index].agregarUnidad();
+        carrito[index].actualizarPrecioTotal();
+    } else {
+        carrito.push(new Producto(productos[idProducto]));
+    }
+
+    tablaCarrito(carrito);
+};
+
+function obtenerPrecioTotal(array) {
+    let precioTotal = 0;
+    for (const producto of array) {
+        precioTotal += producto.precioTotal;
+    }
+    return precioTotal;
+}
+
+mostrarProductos(productos);
