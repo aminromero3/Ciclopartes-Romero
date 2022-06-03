@@ -198,7 +198,6 @@ function carritoStorage() {
     let productosStorage= JSON.parse(localStorage.getItem("productosStorage"));
     console.log("contenido en chequear Carrito en ls ", productosStorage);
 
-    // Si existe el array del carrito, lo retornará
     if (productosStorage) {
         let array = [];
         for (let i = 0; i < productosStorage.length; i++) {
@@ -209,7 +208,7 @@ function carritoStorage() {
 
         return array;
     }
-    // Si no existe ese array en el LS, esta función devolverá un array vacío
+    
     return [];
 }
 
