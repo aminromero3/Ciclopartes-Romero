@@ -95,28 +95,6 @@ function mostrarProductos(array){
     }
 };
 
-function eliminarDeCarrito(id) {
-    let producto = carrito.find((producto) => producto.id === id);
-    let index = carrito.findIndex((element) => {
-        if (element.id === producto.id) {
-            return true;
-        }
-    });
-    if (producto.cantidad > 1) {
-        console.log(`cantidad disponible: ${producto.cantidad}`);
-
-        carrito[index].quitarUnidad();
-        carrito[index].actualizarPrecioTotal();
-    } else {
-        carrito.splice(index, 1);
-
-        if (carrito.lenght === 0) {
-            carrito = [];
-        }
-    }
-    tablaCarrito(carrito);
-}
-
 function tablaCarrito(carrito) {
     let contenedor1= document.getElementById("carrito");
     contenedor1.innerHTML = "";
@@ -188,8 +166,52 @@ function agregarACarrito(idProducto) {
         carrito.push(new Producto(productos[idProducto]));
     }
 
+    localStorage.setItem("productosStorage", JSON.stringify(carrito));
+    
     tablaCarrito(carrito);
 };
+
+function eliminarDeCarrito(id) {
+    let producto = carrito.find((producto) => producto.id === id);
+    let index = carrito.findIndex((element) => {
+        if (element.id === producto.id) {
+            return true;
+        }
+    });
+    if (producto.cantidad > 1) {
+        console.log(`cantidad disponible: ${producto.cantidad}`);
+
+        carrito[index].quitarUnidad();
+        carrito[index].actualizarPrecioTotal();
+    } else {
+        carrito.splice(index, 1);
+
+        if (carrito.lenght === 0) {
+            carrito = [];
+        }
+    }
+    localStorage.setItem("productosStorage", JSON.stringify(carrito));
+    tablaCarrito(carrito);
+}
+
+function carritoStorage() {
+    let productosStorage= JSON.parse(localStorage.getItem("productosStorage"));
+    console.log("contenido en chequear Carrito en ls ", productosStorage);
+
+    // Si existe el array del carrito, lo retornará
+    if (productosStorage) {
+        let array = [];
+        for (let i = 0; i < productosStorage.length; i++) {
+            let producto = new Producto(productosStorage[i]);
+            producto.actualizarPrecioTotal();
+            array.push(producto);
+        }
+
+        return array;
+    }
+    // Si no existe ese array en el LS, esta función devolverá un array vacío
+    return [];
+}
 
 function obtenerPrecioTotal(array) {
     let precioTotal = 0;
@@ -198,5 +220,6 @@ function obtenerPrecioTotal(array) {
     }
     return precioTotal;
 }
-
+carrito=carritoStorage();
+tablaCarrito(carrito);
 mostrarProductos(productos);
