@@ -170,7 +170,6 @@ function agregarACarrito(idProducto) {
     
     tablaCarrito(carrito);
 };
-
 function eliminarDeCarrito(id) {
     let producto = carrito.find((producto) => producto.id === id);
     let index = carrito.findIndex((element) => {
@@ -208,7 +207,7 @@ function carritoStorage() {
 
         return array;
     }
-    
+
     return [];
 }
 
@@ -219,6 +218,8 @@ function obtenerPrecioTotal(array) {
     }
     return precioTotal;
 }
+
+
 carrito=carritoStorage();
 tablaCarrito(carrito);
 mostrarProductos(productos);
