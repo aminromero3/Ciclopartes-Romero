@@ -63,7 +63,6 @@ const productos=[
     },
 ];
 
-
 //  ************* DECLARACION DE FUNCIONES *********//
 //  recibimos el array como parametro
 function mostrarProductos(array){
@@ -91,7 +90,13 @@ function mostrarProductos(array){
             
             let boton = document.getElementById(`agregar${producto.id}`);
             
-            boton.onclick = () => agregarACarrito(producto.id);
+            boton.onclick = () => {agregarACarrito(producto.id); 
+                Swal.fire({ 
+                    title: 'Producto agregado al carrito',
+                    text: '¿Desea continuar comprando?',
+                    icon: 'success',
+            });
+            }
     }
 };
 
@@ -142,17 +147,27 @@ function tablaCarrito(carrito) {
 
         let eliminar=document.getElementById(`eliminar${producto.id}`)
 
-        eliminar.onclick = () =>eliminarDeCarrito(producto.id);
-    }
-};
-
+        eliminar.onclick = () => {
+        Swal.fire({
+            title: '¿Quiere eliminar el producto del carrito?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Si',
+            denyButtonText: `No`, 
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                eliminarDeCarrito(producto.id);
+            }});
+        };
+    };
+}
 function agregarACarrito(idProducto) {
     let productoCarrito = carrito.find((elemento) => {
         if (elemento.id == idProducto) {
             return true;
         }
     });
-
     if (productoCarrito) {
         let index = carrito.findIndex((elemento) => {
             if (elemento.id === productoCarrito.id) {
@@ -170,6 +185,7 @@ function agregarACarrito(idProducto) {
     
     tablaCarrito(carrito);
 };
+
 function eliminarDeCarrito(id) {
     let producto = carrito.find((producto) => producto.id === id);
     let index = carrito.findIndex((element) => {
@@ -219,7 +235,6 @@ function obtenerPrecioTotal(array) {
     return precioTotal;
 }
 
-
 carrito=carritoStorage();
 tablaCarrito(carrito);
-mostrarProductos(productos);
+mostrarProductos(productos); 
